@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input validation</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container{
+            width:50%;
+            max-width:500px;
+            margin:0 auto;
+            border-radius: 10px;
+            padding: 20px 30px;;
+            margin-top: 70px;
+            box-shadow: -4px 4px 3px 5px rgba(0, 0, 0, 0.1);
+        }
+        .container >h1 {
+            text-align: center;
+            color:#696969;
+            text-transform: uppercase;
+        }
+        .container div{
+            /* border:2px yellow solid; */
+            /* padding:20px; */
+            position:relative;
+            margin-bottom: 30px;
+        }
+        .container div input{
+            padding:16px 5px 5px 5px ;
+            width:100%;
+            border:none;
+            outline:none;
+            border-radius: 5px;
+            background-color: transparent;
+            border-bottom: 2px #696969 solid;
+            font-size:16px;
+            color:#23424a;
+            transition-property: all;
+            transition-duration: .3s;
+            transition-timing-function: ease;
+            font-weight:600;
+        }
+        .container div label{
+            color:#696969;
+            font-size:18px;
+            display:block;
+            pointer-events: none;
+            position:absolute;
+            top:10px;
+            left:0;
+            transition-property: all;
+            transition-duration: .3s;
+            transition-timing-function: ease;
+            font-weight: 500;
+        }
+        .container div input:focus ~ label,
+        .container div input:valid ~ label{
+            top:-12px;
+            color:#c9d4e4;
+            font-size:15px;
+            font-weight:400;
+        }
+        .container div input:focus,
+        .container div input:valid{
+            border-bottom: #c9d4e4 solid 2px;
+        }
+
+        .container button{
+            background:#f4f4f4;
+            border:none;
+            padding:10px 30px;
+            border-radius: 5px;
+            box-shadow: -1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+            transition-property: all;
+            transition-duration: .3s;
+            transition-timing-function: ease;
+            margin:20px 0 ;
+
+        }
+        .container button:hover{
+            background-color: #c9d4e4;
+        }
+        .container button:focus{
+            outline:none;
+
+        }
+        .container button a{
+            color:#23424a;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .container div p{
+            color:rgb(235, 65, 65);
+            font-size:13px;
+            font-weight: 600;
+            display:none;
+        }
+        #invalid-name{
+            display:block;
+        }
+        #invalid-email{
+            display:block;
+        }
+        #invalid-number{
+            display:block;
+        }
+        #invalid-enroll{
+            display:block;
+        }
+        .table{
+            border-top:#23424a 2px solid;
+            border-left:#23424a 2px solid;
+            border-right:#23424a 2px solid;
+            width:80%;
+            margin:50px auto;
+        }
+        .table .t-row{
+            display:grid;
+            grid-template-columns:repeat(12,1fr);
+            grid-auto-rows:minmax(30px ,auto) ;
+            background:#f4f4f4;
+            grid-gap: 10px;
+            border-bottom:2px solid #23424a;
+            grid-gap: 10px;
+        }
+        .id{
+            text-align: center;
+            grid-column: 1/2;
+            
+        }
+        .name{
+            text-align: center;
+            grid-column: 2/4;
+        }
+        .enrollment{
+            text-align: center;
+            grid-column: 4/6;
+        }
+        .email{
+            text-align: center;
+            grid-column: 6/10;
+        }
+        .number{
+            text-align: center;
+            grid-column: 10/12;
+        }
+        .td + .td{
+            border-left:2px solid #23424a;
+        }
+        .td {
+            font-size:12px;
+            font-weight: 500;
+            overflow: hidden;
+            display:inline-block;
+        }
+        .t-head{
+            position:sticky;
+            top:0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Input Validation</h1>
+        <div>
+            <input type="text" id = "name" required>
+            <label for="name">Name</label>
+            <p class = "valid-name">Invalid! Name</p>
+        </div>
+        <div>
+            <input type="text" id = "email" required>
+            <label for="email">Email</label>
+            <p class = "valid-email">Invalid! Email</p>
+        </div>
+        <div>
+            <input type="text" id = "number" required>
+            <label for="number">Number</label>
+            <p class = "valid-number" >Invalid! number</p>
+        </div>
+        <div>
+            <input type="text" id = "enroll" required>
+            <label for="enroll">Enroll No</label>
+            <p class = "valid-enroll">Invalid! Enrollment Number</p>
+        </div>
+        <button class = "btn"><a href="#">Submit</a></button>
+    </div>
+
+    <div class="table">
+        <div class="t-row t-head">
+            <h3 class="id td">ID</h3>
+            <h3 class="name td">Name</h3>
+            <h3 class="enrollment td">EnrollmentNumber</h3>
+            <h3 class="email td">Email</h3>
+            <h3 class="number td">Number</h3>
+        </div>
+    </div>
+
+
+
+
+    <script type = "module" src = "inputValidation.js"></script>
+    
+</body>
+</html>
